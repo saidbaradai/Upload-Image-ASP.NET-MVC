@@ -67,6 +67,20 @@ namespace Upload_Image_v2.Controllers
 
 
 
+        public ActionResult Delete(int id)
+        {
+
+            var image = db.Images.Find(id);
+            db.Images.Remove(image);
+            db.SaveChanges();
+
+
+            List<Image> images = db.Images.ToList();
+            return View("Index", images);
+
+        }
+
+
 
 
 
